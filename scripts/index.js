@@ -37,18 +37,18 @@ let casillas = [
 
 // Acciones especiales (usa índices de array, no número visual de casilla) 
 let accionesCasillas = Array(36).fill(null);
-accionesCasillas[1]  = { tipo: "saltar", destino: 20 }; // casilla 2 → índice 1
-accionesCasillas[4]  = { tipo: "pierdeTurno" };         // casilla 5 → índice 4
-accionesCasillas[6]  = { tipo: "saltar", destino: 10 }; // casilla 7 → índice 6
-accionesCasillas[11] = { tipo: "reiniciar" };           // casilla 12 → índice 11
-accionesCasillas[13] = { tipo: "saltar", destino: 28 }; // casilla 14 → índice 13
-accionesCasillas[17] = { tipo: "pierdeTurno" };         // casilla 18 → índice 17
-accionesCasillas[21] = { tipo: "avanzar", pasos: 2 };   // casilla 22 → índice 21
-accionesCasillas[24] = { tipo: "saltar", destino: 8 };  // casilla 25 → índice 24
-accionesCasillas[29] = { tipo: "saltar", destino: 26 }; // casilla 30 → índice 29
-accionesCasillas[30] = { tipo: "tirarOtraVez" };       // casilla 31 → índice 30
-accionesCasillas[32] = { tipo: "saltar", destino: 19 }; // casilla 33 → índice 32
-accionesCasillas[35] = { tipo: "final" };               // casilla 36 → índice 35
+accionesCasillas[1]  = { tipo: "saltar", destino: 20 }; // casilla 2 - índice 1
+accionesCasillas[4]  = { tipo: "pierdeTurno" };         // casilla 5 - índice 4
+accionesCasillas[6]  = { tipo: "saltar", destino: 10 }; // casilla 7 - índice 6
+accionesCasillas[11] = { tipo: "reiniciar" };           // casilla 12 - índice 11
+accionesCasillas[13] = { tipo: "saltar", destino: 28 }; // casilla 14 - índice 13
+accionesCasillas[17] = { tipo: "pierdeTurno" };         // casilla 18 - índice 17
+accionesCasillas[21] = { tipo: "avanzar", pasos: 2 };   // casilla 22 - índice 21
+accionesCasillas[24] = { tipo: "saltar", destino: 8 };  // casilla 25 - índice 24
+accionesCasillas[29] = { tipo: "saltar", destino: 26 }; // casilla 30 - índice 29
+accionesCasillas[30] = { tipo: "tirarOtraVez" };       // casilla 31 - índice 30
+accionesCasillas[32] = { tipo: "saltar", destino: 19 }; // casilla 33 - índice 32
+accionesCasillas[35] = { tipo: "final" };               // casilla 36 - índice 35
 
 // Posiciones de jugadores (índice en array)
 let posicionJ1 = 0;
@@ -80,31 +80,31 @@ function aplicarAccion(jugador, posicion) {
 
     switch (accion.tipo) {
         case "saltar":
-            mensajes.textContent += ` → Saltar a casilla ${accion.destino + 1}`;
+            mensajes.textContent += ` - Saltar a casilla ${accion.destino + 1}`;
             if (jugador === 1) posicionJ1 = accion.destino;
             else posicionJ2 = accion.destino;
             moverFicha(jugador, 0);
             break;
         case "pierdeTurno":
-            mensajes.textContent += " → Pierde el siguiente turno!";
+            mensajes.textContent += " - Pierde el siguiente turno!";
             if (jugador === 1) jugador1PierdeTurno = true;
             else jugador2PierdeTurno = true;
             break;
         case "reiniciar":
-            mensajes.textContent += " → Vuelves al inicio!";
+            mensajes.textContent += " - Vuelves al inicio!";
             if (jugador === 1) posicionJ1 = 0;
             else posicionJ2 = 0;
             moverFicha(jugador, 0);
             break;
         case "avanzar":
-            mensajes.textContent += ` → Avanza ${accion.pasos} casillas!`;
+            mensajes.textContent += ` - Avanza ${accion.pasos} casillas!`;
             moverFicha(jugador, accion.pasos);
             break;
         case "tirarOtraVez":
-            mensajes.textContent += " → Puedes tirar otra vez!";
+            mensajes.textContent += " - Puedes tirar otra vez!";
             break;
         case "final":
-            mensajes.textContent += " → ¡Has llegado al final! 🎉";
+            mensajes.textContent += " - ¡Has llegado al final!";
             botonDado.disabled = true;
             break;
     }

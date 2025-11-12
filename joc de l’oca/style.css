@@ -221,3 +221,26 @@ button:disabled {
     border-radius: 12px;
     box-shadow: 0 5px 15px #00000033;
 }
+
+/* --- Fichas --- */
+.ficha {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    transition: all 0.6s ease; /* movimiento suave */
+}
+
+#ficha1 {
+    background-color: #3498db; /* Azul */
+}
+
+#ficha2 {
+    background-color: #e74c3c; /* Rojo */
+}

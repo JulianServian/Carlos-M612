@@ -1,5 +1,88 @@
 console.log("Hola desde Script.js");
 
+const preguntas = [
+  { 
+    pregunta: "¿Cuál es la capital de Francia?", 
+    opciones: ["Madrid", "París", "Roma", "Berlín"], 
+    correcta: "París" 
+  },
+  { 
+    pregunta: "¿Cuál es el planeta más grande del sistema solar?", 
+    opciones: ["Tierra", "Marte", "Júpiter", "Venus"], 
+    correcta: "Júpiter" 
+  },
+  { 
+    pregunta: "¿Quién escribió 'Cien años de soledad'?", 
+    opciones: ["Gabriel García Márquez", "Mario Vargas Llosa", "Pablo Neruda", "Julio Cortázar"], 
+    correcta: "Gabriel García Márquez" 
+  },
+  { 
+    pregunta: "¿Cuál es el metal más ligero?", 
+    opciones: ["Hierro", "Aluminio", "Litio", "Cobre"], 
+    correcta: "Litio" 
+  },
+  { 
+    pregunta: "¿En qué año llegó el hombre a la Luna?", 
+    opciones: ["1965", "1969", "1972", "1959"], 
+    correcta: "1969" 
+  },
+  { pregunta: "¿Cuál es el río más largo del mundo?", opciones: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"], correcta: "Amazonas" },
+  { pregunta: "¿Qué órgano produce la insulina?", opciones: ["Hígado", "Páncreas", "Riñón", "Corazón"], correcta: "Páncreas" },
+  { pregunta: "¿Cuál es la capital de Japón?", opciones: ["Seúl", "Beijing", "Tokio", "Bangkok"], correcta: "Tokio" },
+  { pregunta: "¿Qué gas es esencial para la respiración?", opciones: ["Nitrógeno", "Oxígeno", "Dióxido de carbono", "Helio"], correcta: "Oxígeno" },
+  { pregunta: "¿Quién pintó la Mona Lisa?", opciones: ["Leonardo da Vinci", "Miguel Ángel", "Picasso", "Van Gogh"], correcta: "Leonardo da Vinci" },
+  { pregunta: "¿Cuál es el océano más grande?", opciones: ["Atlántico", "Índico", "Pacífico", "Ártico"], correcta: "Pacífico" },
+  { pregunta: "¿Qué instrumento mide la presión atmosférica?", opciones: ["Termómetro", "Barómetro", "Higrómetro", "Anemómetro"], correcta: "Barómetro" },
+  { pregunta: "¿Qué país tiene la mayor población?", opciones: ["India", "EE.UU.", "China", "Rusia"], correcta: "China" },
+  { pregunta: "¿Cuál es el símbolo químico del oro?", opciones: ["Ag", "Au", "Gd", "Go"], correcta: "Au" },
+  { pregunta: "¿Quién es el autor de 'Hamlet'?", opciones: ["Shakespeare", "Dante", "Goethe", "Cervantes"], correcta: "Shakespeare" },
+  { pregunta: "¿Cuál es el deporte más popular del mundo?", opciones: ["Baloncesto", "Fútbol", "Tenis", "Cricket"], correcta: "Fútbol" },
+  { pregunta: "¿Qué planeta es conocido como el planeta rojo?", opciones: ["Marte", "Mercurio", "Júpiter", "Venus"], correcta: "Marte" },
+  { pregunta: "¿Cuál es el país más grande del mundo?", opciones: ["Canadá", "China", "Rusia", "Estados Unidos"], correcta: "Rusia" },
+  { pregunta: "¿Qué órgano bombea sangre al cuerpo?", opciones: ["Pulmones", "Cerebro", "Hígado", "Corazón"], correcta: "Corazón" },
+  { pregunta: "¿En qué continente está Egipto?", opciones: ["Asia", "África", "Europa", "Oceanía"], correcta: "África" },
+  { pregunta: "¿Cuál es el animal terrestre más rápido?", opciones: ["León", "Guepardo", "Tigre", "Caballo"], correcta: "Guepardo" },
+  { pregunta: "¿Qué idioma se habla en Brasil?", opciones: ["Español", "Portugués", "Inglés", "Francés"], correcta: "Portugués" },
+  { pregunta: "¿Quién descubrió la gravedad?", opciones: ["Einstein", "Newton", "Galileo", "Tesla"], correcta: "Newton" },
+  { pregunta: "¿Cuál es el símbolo químico del agua?", opciones: ["H2O", "CO2", "O2", "NaCl"], correcta: "H2O" },
+  { pregunta: "¿Cuál es el continente más pequeño?", opciones: ["Europa", "Oceanía", "Antártida", "América"], correcta: "Oceanía" },
+  { pregunta: "¿Qué planeta tiene los anillos más visibles?", opciones: ["Saturno", "Júpiter", "Urano", "Neptuno"], correcta: "Saturno" },
+  { pregunta: "¿Cuál es el ave más grande?", opciones: ["Águila", "Avestruz", "Condor", "Cóndor"], correcta: "Avestruz" },
+  { pregunta: "¿Qué instrumento se usa para escuchar el corazón?", opciones: ["Estetoscopio", "Termómetro", "Microscopio", "Barómetro"], correcta: "Estetoscopio" },
+  { pregunta: "¿Quién escribió 'Don Quijote'?", opciones: ["Miguel de Cervantes", "Lope de Vega", "García Lorca", "Borges"], correcta: "Miguel de Cervantes" },
+  { pregunta: "¿Cuál es la montaña más alta del mundo?", opciones: ["K2", "Everest", "Kangchenjunga", "Lhotse"], correcta: "Everest" },
+  { pregunta: "¿Cuál es el océano más profundo?", opciones: ["Atlántico", "Pacífico", "Índico", "Ártico"], correcta: "Pacífico" },
+  { pregunta: "¿Qué país inventó la pizza?", opciones: ["España", "Italia", "Francia", "Grecia"], correcta: "Italia" },
+  { pregunta: "¿Cuál es la unidad básica de la vida?", opciones: ["Tejido", "Célula", "Órgano", "Molécula"], correcta: "Célula" },
+  { pregunta: "¿Quién pintó 'La última cena'?", opciones: ["Leonardo da Vinci", "Miguel Ángel", "Rafael", "Van Gogh"], correcta: "Leonardo da Vinci" },
+  { pregunta: "¿Cuál es el planeta más cercano al sol?", opciones: ["Mercurio", "Venus", "Tierra", "Marte"], correcta: "Mercurio" },
+  { pregunta: "¿Qué elemento tiene el símbolo 'O'?", opciones: ["Oro", "Oxígeno", "Osmio", "Oganesón"], correcta: "Oxígeno" },
+  { pregunta: "¿Qué continente tiene más países?", opciones: ["África", "Europa", "Asia", "América"], correcta: "África" },
+  { pregunta: "¿Cuál es el instrumento musical de cuerdas más pequeño?", opciones: ["Viola", "Violín", "Guitarra", "Contrabajo"], correcta: "Violín" },
+  { pregunta: "¿Quién fue el primer presidente de EE.UU.?", opciones: ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "John Adams"], correcta: "George Washington" },
+  { pregunta: "¿Qué gas utilizan las plantas en la fotosíntesis?", opciones: ["Oxígeno", "Nitrógeno", "Dióxido de carbono", "Hidrógeno"], correcta: "Dióxido de carbono" },
+  { pregunta: "¿Cuál es el desierto más grande del mundo?", opciones: ["Sahara", "Gobi", "Kalahari", "Antártico"], correcta: "Antártico" },
+  { pregunta: "¿Qué país tiene forma de bota?", opciones: ["Italia", "España", "Grecia", "Portugal"], correcta: "Italia" },
+  { pregunta: "¿Qué metal es líquido a temperatura ambiente?", opciones: ["Mercurio", "Plomo", "Oro", "Aluminio"], correcta: "Mercurio" },
+  { pregunta: "¿Quién escribió '1984'?", opciones: ["Orwell", "Huxley", "Bradbury", "Camus"], correcta: "Orwell" },
+  { pregunta: "¿Qué planeta es el más frío del sistema solar?", opciones: ["Neptuno", "Urano", "Saturno", "Júpiter"], correcta: "Neptuno" },
+  { pregunta: "¿Cuál es la lengua más hablada del mundo?", opciones: ["Inglés", "Mandarín", "Español", "Hindi"], correcta: "Mandarín" },
+  { pregunta: "¿Qué animal tiene la lengua más larga?", opciones: ["Camaleón", "Jirafa", "Elefante", "Canguro"], correcta: "Camaleón" },
+  { pregunta: "¿Cuál es la capital de Canadá?", opciones: ["Toronto", "Ottawa", "Montreal", "Vancouver"], correcta: "Ottawa" },
+  { pregunta: "¿Quién pintó 'El Grito'?", opciones: ["Edvard Munch", "Van Gogh", "Picasso", "Monet"], correcta: "Edvard Munch" },
+  { pregunta: "¿Cuál es el número de planetas en el sistema solar?", opciones: ["8", "9", "7", "10"], correcta: "8" },
+  { pregunta: "¿Qué país ganó la Copa Mundial de Fútbol 2018?", opciones: ["Brasil", "Francia", "Alemania", "Argentina"], correcta: "Francia" },
+  { pregunta: "¿Cuál es el mineral más duro?", opciones: ["Cuarzo", "Diamante", "Oro", "Hierro"], correcta: "Diamante" },
+  { pregunta: "¿Qué vitamina se obtiene del sol?", opciones: ["Vitamina A", "Vitamina B", "Vitamina C", "Vitamina D"], correcta: "Vitamina D" },
+  { pregunta: "¿Cuál es el continente más grande?", opciones: ["Asia", "África", "América", "Europa"], correcta: "Asia" },
+  { pregunta: "¿Qué país es famoso por los tulipanes?", opciones: ["Bélgica", "Países Bajos", "Alemania", "Francia"], correcta: "Países Bajos" }
+];
+
+console.log(preguntas);
+
+
+
+
 // Referencias a botones y elementos
 let botonDado = document.querySelector("#botonDado");
 let botonNuevoJuego = document.querySelector("#botonNuevoJuego");
@@ -137,7 +220,7 @@ function cambiarTurno() {
     turnoJugador = turnoJugador === 1 ? 2 : 1;
     jugador1Panel.classList.toggle("activo");
     jugador2Panel.classList.toggle("activo");
-    mensajes.textContent += ` Turno del Jugador ${turnoJugador}`;
+    mensajes.textContent += ` - Turno del Jugador ${turnoJugador}`;
 }
 
 //  Nueva partida

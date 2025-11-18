@@ -234,7 +234,7 @@ button:disabled {
     justify-content: center;
     color: white;
     text-shadow: 1px 1px 2px black;
-    transition: all 0.6s ease; /* movimiento suave */
+    transition: all 0.80s ease; 
 }
 
 #ficha1 {
